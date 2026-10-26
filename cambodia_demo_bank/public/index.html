@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cambodia Demo Bank</title>
+<style>
+:root{--navy:#102b55;--navy2:#183d70;--cyan:#25b7c4;--bg:#f4f7fb;--card:#fff;--text:#17243a;--muted:#738096;--line:#e6ebf2;--green:#16865b;--red:#c54b56;--shadow:0 8px 28px rgba(24,48,84,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.sidebar{background:var(--navy);color:#fff;padding:26px 16px;display:flex;flex-direction:column;gap:26px}.brand{display:flex;gap:11px;align-items:center;padding:0 10px}.brandmark{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#33d0d0,#2387c9);display:grid;place-items:center;font-weight:900;font-size:20px}.brand strong{display:block;font-size:16px}.brand small{color:#b9cbe4;font-size:11px}.nav{display:grid;gap:6px}.nav button{background:transparent;color:#cfdaea;text-align:left;padding:12px 13px;border-radius:10px;display:flex;align-items:center;gap:12px}.nav button.active,.nav button:hover{background:#244875;color:#fff}.nav .ico{width:20px;text-align:center}.side-note{margin-top:auto;background:#1b3b66;border:1px solid #355783;border-radius:14px;padding:14px;font-size:12px;color:#d6e4f7;line-height:1.5}.main{min-width:0;padding:26px clamp(16px,3vw,38px) 36px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:25px}.eyebrow{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700}.topbar h1{margin:5px 0 0;font-size:clamp(23px,3vw,30px);letter-spacing:-.04em}.userpill{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px 7px 7px}.avatar{height:36px;width:36px;border-radius:50%;display:grid;place-items:center;background:#dff7f5;color:#126b77;font-weight:800}.userpill small{display:block;color:var(--muted);font-size:11px}.demo-banner{display:flex;gap:10px;align-items:center;padding:12px 15px;border:1px solid #f3d69c;background:#fff8e9;color:#79561b;border-radius:12px;font-size:13px;margin-bottom:22px}.grid{display:grid;gap:18px}.balance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.balance-card{border-radius:18px;padding:23px;color:#fff;position:relative;overflow:hidden;min-height:175px;box-shadow:var(--shadow);background:linear-gradient(125deg,#12305d,#24568a)}.balance-card.usd{background:linear-gradient(125deg,#08777e,#19a5a7)}.balance-card:after{content:"";position:absolute;width:180px;height:180px;border:1px solid #ffffff25;border-radius:50%;right:-45px;top:-65px;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff06}.card-top{display:flex;justify-content:space-between;align-items:center;color:#d8e5f7;font-size:13px}.currency-badge{padding:5px 9px;border-radius:8px;background:#ffffff20;font-size:11px;font-weight:800}.amount{font-size:clamp(26px,4vw,34px);font-weight:750;letter-spacing:-.04em;margin:23px 0 7px}.account-num{font-size:12px;color:#d3e0f2;letter-spacing:.08em}.quick-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin:18px 0 26px}.quick{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px 12px;text-align:center;color:var(--text);box-shadow:0 3px 10px #102b5505}.quick:hover{border-color:#9ddde1;transform:translateY(-1px)}.quick .qico{width:38px;height:38px;border-radius:12px;background:#e8f7f8;color:#0a808a;display:grid;place-items:center;margin:0 auto 10px;font-size:20px}.quick strong{font-size:13px;display:block}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 13px}.section-head h2{font-size:18px;margin:0;letter-spacing:-.02em}.text-btn{background:transparent;color:#087c8a;font-size:13px;font-weight:750;padding:8px}.content-grid{grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr)}.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:0 3px 14px #102b5504;min-width:0}.transaction-list{display:grid}.tx{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.tx:last-child{border-bottom:0}.txicon{width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:#f0f4f9;display:grid;place-items:center;font-size:18px}.txdesc{flex:1;min-width:0}.txdesc strong{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.txdesc small{color:var(--muted);font-size:11px}.txamount{text-align:right;font-weight:750;font-size:13px;white-space:nowrap}.txamount small{display:block;font-size:10px;color:var(--muted);font-weight:500;margin-top:4px}.positive{color:var(--green)}.negative{color:var(--red)}.empty{padding:30px 10px;text-align:center;color:var(--muted);font-size:13px}.statrow{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}.statrow:last-child{border-bottom:0}.statrow span{color:var(--muted)}.progress{height:7px;background:#edf1f6;border-radius:99px;overflow:hidden;margin:8px 0 15px}.progress div{height:100%;background:linear-gradient(90deg,#21b8c2,#317ed1);border-radius:99px}.page{display:none}.page.active{display:block}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:750;color:#506078}.field input,.field select,.field textarea{width:100%;border:1px solid #dce4ed;background:#fff;padding:12px;border-radius:10px;outline:none;color:var(--text)}.field input:focus,.field select:focus,.field textarea:focus{border-color:#20aab7;box-shadow:0 0 0 3px #20aab71c}.primary{background:var(--navy);color:#fff;border-radius:10px;padding:12px 16px;font-weight:750}.primary:hover{background:var(--navy2)}.secondary{background:#edf4f9;color:var(--navy);border-radius:10px;padding:12px 16px;font-weight:750}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hint{color:var(--muted);font-size:12px;line-height:1.6}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px;min-width:560px}th{text-align:left;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:12px;border-bottom:1px solid var(--line)}td{padding:14px 12px;border-bottom:1px solid var(--line)}.status{display:inline-block;border-radius:999px;background:#e5f7ef;color:#16734f;padding:5px 8px;font-size:10px;font-weight:800}.status.failed{background:#fff0f0;color:#b63b48}.status.demo{background:#fff5dd;color:#8b6517}.toast{position:fixed;right:20px;bottom:20px;background:#122f58;color:#fff;padding:14px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:10;max-width:calc(100vw - 40px);font-size:13px;display:none}.toast.show{display:block;animation:fade 3.5s forwards}@keyframes fade{0%,75%{opacity:1}100%{opacity:0;visibility:hidden}}.small-label{font-size:11px;color:var(--muted)}.hide-btn{background:#ffffff20;color:white;border-radius:8px;padding:6px 9px;font-size:11px}.mobile-nav{display:none}.danger{color:var(--red)}@media(max-width:950px){.app{grid-template-columns:210px minmax(0,1fr)}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}.main{padding:22px 18px}}@media(max-width:650px){.app{display:block;padding-bottom:70px}.sidebar{display:none}.main{padding:18px 14px}.topbar{margin-bottom:17px}.userpill .usertext{display:none}.balance-grid{grid-template-columns:1fr}.balance-card{min-height:158px}.quick-grid{gap:9px;margin:13px 0 22px}.quick{padding:13px 8px}.panel{padding:15px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.mobile-nav{display:grid;position:fixed;bottom:0;left:0;right:0;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);padding:7px 4px calc(7px + env(safe-area-inset-bottom));z-index:5}.mobile-nav button{background:transparent;color:#758198;font-size:10px;display:grid;justify-items:center;gap:3px;padding:5px 1px}.mobile-nav button.active{color:#087f89;font-weight:800}.mobile-nav span{font-size:18px}.demo-banner{font-size:11px;align-items:flex-start}.txamount{font-size:12px}.amount{margin:18px 0 6px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark">C</div><div><strong>Cambodia Demo Bank</strong><small>Digital banking demo</small></div></div>
+  <nav class="nav" id="sideNav">
+    <button class="active" data-page="dashboard"><span class="ico">▦</span> Dashboard</button>
+    <button data-page="accounts"><span class="ico">▣</span> My Accounts</button>
+    <button data-page="transfer"><span class="ico">⇄</span> Transfer Money</button>
+    <button data-page="deposit"><span class="ico">↙</span> Deposit Demo Funds</button>
+    <button data-page="withdraw"><span class="ico">↗</span> Withdraw Demo Funds</button>
+    <button data-page="transactions"><span class="ico">◷</span> Transactions</button>
+    <button data-page="settings"><span class="ico">⚙</span> Settings</button>
+  </nav>
+  <div class="side-note"><strong>Demo environment</strong><br>All balances and transactions are fictional. No real money or bank accounts are involved.</div>
+</aside>
+<main class="main">
+  <header class="topbar"><div><div class="eyebrow" id="eyebrow">Personal banking</div><h1 id="pageTitle">Good afternoon 👋</h1></div><div class="userpill"><div class="avatar">D</div><div class="usertext"><strong id="userName">Demo User</strong><small>Demo customer</small></div></div></header>
+  <div class="demo-banner"><span>⚠️</span><div><strong>DEMO ONLY — NO REAL MONEY.</strong> This prototype stores sample activity in this browser only. Do not enter real banking credentials or sensitive personal data.</div></div>
+
+  <section class="page active" id="page-dashboard">
+    <div class="grid balance-grid">
+      <article class="balance-card"><div class="card-top"><span>Riel savings account</span><span class="currency-badge">KHR</span></div><div class="amount" id="balanceKHR">៛ 2,450,000</div><div class="account-num">Account •••• 2048</div></article>
+      <article class="balance-card usd"><div class="card-top"><span>US Dollar savings</span><span class="currency-badge">USD</span></div><div class="amount" id="balanceUSD">$ 1,250.00</div><div class="account-num">Account •••• 7812</div></article>
+    </div>
+    <div class="grid quick-grid">
+      <button class="quick" data-go="transfer"><span class="qico">⇄</span><strong>Transfer</strong></button>
+      <button class="quick" data-go="deposit"><span class="qico">↙</span><strong>Demo Deposit</strong></button>
+      <button class="quick" data-go="withdraw"><span class="qico">↗</span><strong>Demo Withdraw</strong></button>
+      <button class="quick" data-go="transactions"><span class="qico">◷</span><strong>History</strong></button>
+    </div>
+    <div class="grid content-grid">
+      <div class="panel"><div class="section-head"><h2>Recent activity</h2><button class="text-btn" data-go="transactions">View all →</button></div><div class="transaction-list" id="recentList"></div></div>
+      <div class="panel"><div class="section-head"><h2>Account overview</h2><span class="small-label">Demo summary</span></div>
+        <div class="statrow"><span>KHR available balance</span><strong id="overviewKHR">៛ 2,450,000</strong></div>
+        <div class="statrow"><span>USD available balance</span><strong id="overviewUSD">$ 1,250.00</strong></div>
+        <div class="statrow"><span>Transactions this session</span><strong id="txCount">3</strong></div>
+        <div style="margin-top:18px;font-size:12px;font-weight:750">Activity indicator</div><div class="progress"><div id="activityBar" style="width:32%"></div></div><div class="hint">This indicator is illustrative and is not a credit score or bank assessment.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-accounts">
+    <div class="panel"><div class="section-head"><h2>My demo accounts</h2><span class="status demo">SIMULATED</span></div>
+      <div class="grid balance-grid">
+        <div style="background:#f5f8fc;border:1px solid var(--line);border-radius:14px;padding:18px"><div class="small-label">KHR SAVINGS</div><h2 id="accountKHR" style="margin:10px 0">៛ 2,450,000</h2><p class="hint">Account ending in 2048 · Cambodian Riel</p><span class="status">Active demo account</span></div>
+        <div style="background:#f5fbfb;border:1px solid var(--line);border-radius:14px;padding:18px"><div class="small-label">USD SAVINGS</div><h2 id="accountUSD" style="margin:10px 0">$ 1,250.00</h2><p class="hint">Account ending in 7812 · US Dollar</p><span class="status">Active demo account</span></div>
+      </div>
+      <p class="hint" style="margin-top:18px">KHR and USD balances are displayed separately. Cross-currency transfers are disabled in this demo.</p>
+    </div>
+  </section>
+
+  <section class="page" id="page-transfer">
+    <div class="panel"><div class="section-head"><h2>Transfer demo funds</h2><span class="status demo">DEMO</span></div><p class="hint">Transfer between your own demo accounts is simulated locally. It does not send money to another person or a bank.</p>
+      <form id="transferForm"><div class="form-grid">
+        <div class="field"><label for="fromCurrency">From account</label><select id="fromCurrency"><option value="KHR">KHR •••• 2048</option><option value="USD">USD •••• 7812</option></select></div>
+        <div class="field"><label for="toCurrency">To account</label><select id="toCurrency"><option value="USD">USD •••• 7812</option><option value="KHR">KHR •••• 2048</option></select></div>
+        <div class="field full"><label for="transferAmount">Amount</label><input id="transferAmount" type="number" min="1" step="1" placeholder="Enter amount" required></div>
+        <div class="field full"><label for="transferNote">Description (optional)</label><input id="transferNote" maxlength="80" placeholder="e.g. Savings transfer"></div>
+      </div><div class="actions"><button class="primary" type="submit">Review demo transfer</button><button class="secondary" type="reset">Clear</button></div></form>
+      <p class="hint" style="margin-top:16px">For safety, transfers between KHR and USD accounts are not enabled. Use the same currency for both accounts.</p>
+    </div>
+  </section>
+
+  <section class="page" id="page-deposit">
+    <div class="panel"><div class="section-head"><h2>Deposit demo funds</h2><span class="status demo">NO REAL MONEY</span></div><p class="hint">Add simulated funds to your own demo account for testing the app.</p>
+      <form id="depositForm"><div class="form-grid">
+        <div class="field"><label for="depositCurrency">Deposit into</label><select id="depositCurrency"><option value="KHR">KHR account •••• 2048</option><option value="USD">USD account •••• 7812</option></select></div>
+        <div class="field"><label for="depositAmount">Amount</label><input id="depositAmount" type="number" min="1" step="1" placeholder="Enter amount" required></div>
+        <div class="field full"><label for="depositNote">Description (optional)</label><input id="depositNote" maxlength="80" placeholder="e.g. Test deposit"></div>
+      </div><div class="actions"><button class="primary" type="submit">Add demo funds</button></div></form>
+    </div>
+  </section>
+
+  <section class="page" id="page-withdraw">
+    <div class="panel"><div class="section-head"><h2>Withdraw demo funds</h2><span class="status demo">NO REAL MONEY</span></div><p class="hint">Subtract simulated funds from your demo account. Withdrawals cannot exceed the available demo balance.</p>
+      <form id="withdrawForm"><div class="form-grid">
+        <div class="field"><label for="withdrawCurrency">Withdraw from</label><select id="withdrawCurrency"><option value="KHR">KHR account •••• 2048</option><option value="USD">USD account •••• 7812</option></select></div>
+        <div class="field"><label for="withdrawAmount">Amount</label><input id="withdrawAmount" type="number" min="1" step="1" placeholder="Enter amount" required></div>
+        <div class="field full"><label for="withdrawNote">Description (optional)</label><input id="withdrawNote" maxlength="80" placeholder="e.g. Test withdrawal"></div>
+      </div><div class="actions"><button class="primary" type="submit">Withdraw demo funds</button></div></form>
+    </div>
+  </section>
+
+  <section class="page" id="page-transactions">
+    <div class="panel"><div class="section-head"><h2>Transaction history</h2><button class="secondary" id="exportBtn">Export CSV</button></div><div class="field" style="margin-bottom:14px"><label for="filterCurrency">Filter by currency</label><select id="filterCurrency"><option value="ALL">All currencies</option><option value="KHR">KHR only</option><option value="USD">USD only</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th>Transaction</th><th>Date</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead><tbody id="transactionRows"></tbody></table></div><div id="emptyTransactions" class="empty" style="display:none">No transactions match this filter.</div>
+    </div>
+  </section>
+
+  <section class="page" id="page-settings">
+    <div class="panel"><div class="section-head"><h2>Settings</h2></div><div class="form-grid">
+      <div class="field"><label for="displayName">Display name</label><input id="displayName" maxlength="40" value="Demo User"></div>
+      <div class="field"><label for="language">Language preference</label><select id="language"><option>English</option><option>Khmer (preview)</option></select></div>
+    </div><div class="actions"><button class="primary" id="saveSettings">Save preferences</button><button class="secondary" id="resetDemo">Reset demo data</button></div><p class="hint" style="margin-top:18px">Prototype note: preferences and demo balances are stored in this browser only. This version does not yet use Firebase Authentication or Cloud Firestore.</p></div>
+  </section>
+</main>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+  <button class="active" data-page="dashboard"><span>▦</span>Home</button><button data-page="accounts"><span>▣</span>Accounts</button><button data-page="transfer"><span>⇄</span>Transfer</button><button data-page="transactions"><span>◷</span>Activity</button><button data-page="settings"><span>⚙</span>Profile</button>
+</nav>
+<div class="toast" id="toast"></div>
+<script>
+const initialState = () => ({
+  balances:{KHR:2450000,USD:125000},
+  transactions:[
+    {id:'DB-1003',type:'Demo deposit',currency:'KHR',amount:500000,direction:'in',date:new Date(Date.now()-3600e3*3).toISOString(),note:'Starting demo funds',status:'Completed'},
+    {id:'DB-1002',type:'Demo transfer',currency:'USD',amount:25000,direction:'out',date:new Date(Date.now()-3600e3*26).toISOString(),note:'Savings practice',status:'Completed'},
+    {id:'DB-1001',type:'Demo deposit',currency:'USD',amount:150000,direction:'in',date:new Date(Date.now()-3600e3*52).toISOString(),note:'Starting demo funds',status:'Completed'}
+  ],name:'Demo User'
+});
+let state;
+try{state=JSON.parse(localStorage.getItem('cdb-demo-state'))||initialState()}catch(e){state=initialState()}
+const fmt=(c,n)=>c==='KHR'?'៛ '+Math.round(n).toLocaleString('en-US'):'$ '+(n/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const displayAmount=(c,n)=>c==='KHR'?fmt(c,n):fmt(c,n);
+function save(){localStorage.setItem('cdb-demo-state',JSON.stringify(state));render()}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.remove('show');void el.offsetWidth;el.classList.add('show')}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function dateText(d){return new Date(d).toLocaleString(undefined,{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}
+function iconFor(t){return t.toLowerCase().includes('deposit')?'↙':t.toLowerCase().includes('withdraw')?'↗':'⇄'}
+function txHTML(t){const positive=t.direction==='in';return `<div class="tx"><div class="txicon">${iconFor(t.type)}</div><div class="txdesc"><strong>${escapeHTML(t.type)}</strong><small>${escapeHTML(t.note||'Demo transaction')} · ${dateText(t.date)}</small></div><div class="txamount ${positive?'positive':'negative'}">${positive?'+':'−'}${fmt(t.currency,t.amount)}<small>${escapeHTML(t.currency)} · ${escapeHTML(t.id)}</small></div></div>`}
+function render(){
+ ['KHR','USD'].forEach(c=>{
+  const ids=c==='KHR'?['balanceKHR','overviewKHR','accountKHR']:['balanceUSD','overviewUSD','accountUSD'];
+  ids.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=fmt(c,state.balances[c])});
+ });
+ document.getElementById('userName').textContent=state.name;
+ document.getElementById('displayName').value=state.name;
+ document.getElementById('txCount').textContent=state.transactions.length;
+ document.getElementById('activityBar').style.width=Math.min(95,20+state.transactions.length*5)+'%';
+ document.getElementById('recentList').innerHTML=state.transactions.slice(0,4).map(txHTML).join('')||'<div class="empty">No activity yet.</div>';
+ const filter=document.getElementById('filterCurrency')?.value||'ALL';
+ const list=state.transactions.filter(t=>filter==='ALL'||t.currency===filter);
+ document.getElementById('transactionRows').innerHTML=list.map(t=>`<tr><td><strong>${escapeHTML(t.id)}</strong><div class="small-label">${escapeHTML(t.note||'Demo transaction')}</div></td><td>${dateText(t.date)}</td><td>${escapeHTML(t.type)}</td><td class="${t.direction==='in'?'positive':'negative'}">${t.direction==='in'?'+':'−'}${fmt(t.currency,t.amount)} <span class="small-label">${t.currency}</span></td><td><span class="status">${escapeHTML(t.status)}</span></td></tr>`).join('');
+ document.getElementById('emptyTransactions').style.display=list.length?'none':'block';
+}
+const titles={dashboard:['Personal banking','Good afternoon 👋'],accounts:['Your money','My Accounts'],transfer:['Move demo funds','Transfer Money'],deposit:['Add simulated funds','Deposit Demo Funds'],withdraw:['Manage simulated funds','Withdraw Demo Funds'],transactions:['Your activity','Transaction History'],settings:['Personalize your experience','Settings']};
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('eyebrow').textContent=titles[page][0];document.getElementById('pageTitle').textContent=titles[page][1];window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+document.getElementById('transferForm').addEventListener('submit',e=>{
+ e.preventDefault();const from=document.getElementById('fromCurrency').value,to=document.getElementById('toCurrency').value;
+ const raw=Number(document.getElementById('transferAmount').value),amount=from==='USD'?Math.round(raw*100):Math.round(raw);
+ if(from!==to){toast('Cross-currency transfers are disabled in this demo.');return}
+ if(!Number.isFinite(amount)||amount<=0){toast('Enter a valid positive amount.');return}
+ if(state.balances[from]<amount){toast('Insufficient demo funds.');return}
+ const note=document.getElementById('transferNote').value.trim()||'Demo transfer between own accounts';
+ if(!confirm(`DEMO ONLY — NO REAL MONEY\n\nTransfer ${fmt(from,amount)} from account •••• ${from==='KHR'?'2048':'7812'} to another demo account in ${from}?\n\nContinue?`))return;
+ state.balances[from]-=amount;
+ state.transactions.unshift({id:'DB-'+Date.now().toString().slice(-8),type:'Demo transfer',currency:from,amount,direction:'out',date:new Date().toISOString(),note,status:'Completed'});
+ document.getElementById('transferForm').reset();save();toast('Demo transfer completed locally.');
+});
+function amountFrom(id,c){const n=Number(document.getElementById(id).value);if(!Number.isFinite(n)||n<=0)return null;return c==='USD'?Math.round(n*100):Math.round(n)}
+document.getElementById('depositForm').addEventListener('submit',e=>{
+ e.preventDefault();const c=document.getElementById('depositCurrency').value,a=amountFrom('depositAmount',c);if(a===null){toast('Enter a valid positive amount.');return}if(a>(c==='KHR'?100000000:1000000000)){toast('Amount exceeds the demo limit.');return}
+ state.balances[c]+=a;state.transactions.unshift({id:'DB-'+Date.now().toString().slice(-8),type:'Demo deposit',currency:c,amount:a,direction:'in',date:new Date().toISOString(),note:document.getElementById('depositNote').value.trim()||'Demo deposit',status:'Completed'});e.target.reset();save();toast('Demo funds added. No real money moved.');
+});
+document.getElementById('withdrawForm').addEventListener('submit',e=>{
+ e.preventDefault();const c=document.getElementById('withdrawCurrency').value,a=amountFrom('withdrawAmount',c);if(a===null){toast('Enter a valid positive amount.');return}if(a>state.balances[c]){toast('Insufficient demo funds.');return}
+ if(!confirm(`DEMO ONLY — NO REAL MONEY\n\nWithdraw ${fmt(c,a)} from your demo account?`))return;
+ state.balances[c]-=a;state.transactions.unshift({id:'DB-'+Date.now().toString().slice(-8),type:'Demo withdrawal',currency:c,amount:a,direction:'out',date:new Date().toISOString(),note:document.getElementById('withdrawNote').value.trim()||'Demo withdrawal',status:'Completed'});e.target.reset();save();toast('Demo withdrawal completed locally.');
+});
+document.getElementById('filterCurrency').addEventListener('change',render);
+document.getElementById('exportBtn').addEventListener('click',()=>{
+ const rows=[['Transaction ID','Date','Type','Currency','Amount minor units','Direction','Status','Description'],...state.transactions.map(t=>[t.id,t.date,t.type,t.currency,t.amount,t.direction,t.status,t.note||''])];
+ const csv=rows.map(r=>r.map(v=>{let s=String(v??'');if(/^[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'}).join(',')).join('\r\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='cambodia-demo-bank-transactions.csv';a.click();URL.revokeObjectURL(url);toast('CSV exported.');
+});
+document.getElementById('saveSettings').addEventListener('click',()=>{state.name=document.getElementById('displayName').value.trim()||'Demo User';save();toast('Demo preferences saved in this browser.')});
+document.getElementById('resetDemo').addEventListener('click',()=>{if(confirm('Reset all local demo balances and transactions to their original sample values?')){state=initialState();save();go('dashboard');toast('Demo data reset.')}});
+render();
+</script>
+</body>
+</html>

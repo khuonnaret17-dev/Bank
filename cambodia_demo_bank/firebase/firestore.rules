@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny. This starter has no Firebase client integration yet.
+    // Add narrow, tested read rules only after defining the final schema.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
